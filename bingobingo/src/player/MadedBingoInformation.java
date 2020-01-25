@@ -1,14 +1,14 @@
 package player;
 
-public class MadedBingoInfomation {
+public class MadedBingoInformation {
 	
 	BingoDirection bingoDirection;
 	int whichLine;
 	
-	public MadedBingoInfomation() {
+	public MadedBingoInformation() {
 	}
 	
-	public MadedBingoInfomation(BingoDirection bingoDirection, int whichLine) {
+	public MadedBingoInformation(BingoDirection bingoDirection, int whichLine) {
 		super();
 		this.bingoDirection = bingoDirection;
 		this.whichLine = whichLine;
