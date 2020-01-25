@@ -20,6 +20,7 @@ public class Starter {
 		ArrayList<Player> playerList = new ArrayList<Player>();
 		playerList.add(PlayerMaker.playerMaker(maxIntRange, bingoBoardSize, "1번 유저"));
 		playerList.add(PlayerMaker.playerMaker(maxIntRange, bingoBoardSize, "2번 유저"));
+		
 		while(!GameClearJudge.gameCleareJudge(playerList, bingoLinesForClear)) {
 			int pickNumberNow = numberIndexing.get(0);
 			System.out.println("이번에 뽑힌 숫자는  "+pickNumberNow);
@@ -30,6 +31,7 @@ public class Starter {
 				player.setMadedBingoList(BingoChecker.bingoChecker(player.getBingoBoardForCheck()));
 			}
 		}
+		
 	}
 	
 	public static ArrayList<Player> oneSequence(ArrayList<Player> players) {
