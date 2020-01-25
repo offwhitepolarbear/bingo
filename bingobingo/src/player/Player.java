@@ -1,9 +1,11 @@
 package player;
 
+import java.util.ArrayList;
+
 public class Player {
 	int [][] bingoBoard;
-	int howManyBingoMade;
-	int index;
+	int [][] bingoBoardForCheck;
+	ArrayList<MadedBingoInfomation> madedBingoList;
 	
 	public int[][] getBingoBoard() {
 		return bingoBoard;
@@ -11,17 +13,17 @@ public class Player {
 	public void setBingoBoard(int[][] bingoBoard) {
 		this.bingoBoard = bingoBoard;
 	}
-	public int getHowManyBingoMade() {
-		return howManyBingoMade;
+	public int[][] getBingoBoardForCheck() {
+		return bingoBoardForCheck;
 	}
-	public void setHowManyBingoMade(int howManyBingoMade) {
-		this.howManyBingoMade = howManyBingoMade;
+	public void setBingoBoardForCheck(int[][] bingoBoardForCheck) {
+		this.bingoBoardForCheck = bingoBoardForCheck;
 	}
-	public int getIndex() {
-		return index;
+	public ArrayList<MadedBingoInfomation> getMadedBingoList() {
+		return madedBingoList;
 	}
-	public void setIndex(int index) {
-		this.index = index;
+	public void setMadedBingoList(ArrayList<MadedBingoInfomation> madedBingoList) {
+		this.madedBingoList = madedBingoList;
 	}
 	
 }

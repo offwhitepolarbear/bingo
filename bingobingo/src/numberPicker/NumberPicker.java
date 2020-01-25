@@ -3,30 +3,36 @@ package numberPicker;
 import java.util.ArrayList;
 
 public class NumberPicker {
-	
-	public static int randomNumberPicker(int range) {
-		int pick = 0;
-		pick = (int) (Math.random() * range);
 
-		if (pick == 0) {
-			pick = randomNumberPicker(range);
-		}
+	public static int randomNumberPicker(int range) {
+
+		int pick = (int) (Math.random() * range)+1;
+		
 		return pick;
 	}
-	
-	public static int pickNumberChecker(int numberRange, ArrayList<Integer> alredyNumberList) {
-		int pick = 0;
 
-		pick = randomNumberPicker(numberRange);
+	public static ArrayList<Integer> numberSequenceMaker(int numberRange, int needNumberSize) {
+		ArrayList<Integer> numberingList = new ArrayList<Integer>();
+		while (numberingList.size() < needNumberSize) {
+			int pick = randomNumberPicker(numberRange);
+			if(!isAlreadyPickedNumber(pick, numberingList)) {
+				numberingList.add(pick);
+			}
+		}
+		return numberingList;
+	}
 
-		for (int alreadyNumbering : alredyNumberList) {
-			if (pick == alreadyNumbering) {
-				pick = pickNumberChecker(numberRange, alredyNumberList);
+	private static boolean isAlreadyPickedNumber(int numberForCheck, ArrayList<Integer> alreadyNumberingList) {
+		boolean result = false;
+
+		for (int alreadyNumbering : alreadyNumberingList) {
+			if (numberForCheck == alreadyNumbering) {
+				result = true;
+				break;
 			}
 		}
 
-		alredyNumberList.add(pick);
-		return pick;
+		return result;
 	}
 
 }
