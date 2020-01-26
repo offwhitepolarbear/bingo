@@ -17,11 +17,13 @@ public class BoardMaker {
 		for(int i=0;i<bingoBoard[0].length;i++) {
 			for(int j=0;j<bingoBoard[0].length;j++) {
 				bingoBoard[i][j]=numbersForBoard.get(indexMarker);
-				System.out.println("보드만드는중 입력된 숫자는 "+numbersForBoard.get(indexMarker));
+				System.out.print(numbersForBoard.get(indexMarker)+",");
 				indexMarker++;
-				
 			}
+			System.out.println();
 		}
+		System.out.println();
+
 		return bingoBoard;
 	}
 }
