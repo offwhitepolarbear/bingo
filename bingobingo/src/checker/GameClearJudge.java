@@ -1,17 +1,18 @@
 package checker;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import player.MadedBingoInformation;
 import player.Player;
 
 public class GameClearJudge {
-	public static boolean gameCleareJudge(ArrayList<Player> playerList, int clearGoal) {
+	public static boolean gameCleareJudge(List<Player> playerList, int clearGoal) {
 		boolean isCleared = false;
 		for(Player player : playerList) {
 			if(player.getMadedBingoList().size()==clearGoal){
-				System.out.println(player.getName()+"´ÔÀÌ ¸ñÇ¥ ºù°í È½¼ö " +clearGoal+"¸¦ ´Ş¼ºÇß½À´Ï´Ù." );
-				System.out.println("¿Ï¼º½ÃÅ² ºù°í ¸ñ·Ï : ");
+				System.out.println(player.getName()+"ë‹˜ì´  " +clearGoal+"ì¤„ ë¹™ê³ ë¥¼ ì™„ì„±í–ˆìŠµë‹ˆë‹¤." );
+				System.out.println("ì™„ì„±í•œ ë¹™ê³  ëª©ë¡ : ");
 				for(MadedBingoInformation bingoInformation : player.getMadedBingoList()) {
 					System.out.println(bingoInformation);
 				}

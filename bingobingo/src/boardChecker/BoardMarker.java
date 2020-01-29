@@ -5,14 +5,14 @@ public class BoardMarker {
 		
 		if(markingPosition.length==2) {
 			bingoBoard[markingPosition[0]][markingPosition[1]] = 1;
-			System.out.print("¼¼·Î ");
+			System.out.print("ì„¸ë¡œ ");
 			System.out.print(markingPosition[0]+1);
-			System.out.print(" ¹øÂ° °¡·Î ");
+			System.out.print(" ë²ˆì§¸ ê°€ë¡œ  ");
 			System.out.print(markingPosition[1]+1);
-			System.out.println("¹øÂ° Ä­ÀÌ ¸¶Å·µÊ");
+			System.out.println(" ë²ˆì§¸ ì¹¸ì´ ì²´í¬ ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		}
 		else {
-			System.out.println("¸¶Å·ÇÒ ´ë»óÀÌ ¾øÀ½");
+			System.out.println("ì²´í¬ ëœ ì¹¸ ì—†ìŒ");
 		}
 		
 		return bingoBoard; 

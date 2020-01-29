@@ -1,15 +1,13 @@
 package starter;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import boardChecker.BoardMarker;
 import checker.BingoChecker;
 import checker.GameClearJudge;
 import numberPicker.NumberPicker;
-import player.BingoDirection;
 import player.Player;
 import player.PlayerListMaker;
-import player.PlayerMaker;
 
 public class Starter {
 	static int bingoBoardSize = 5;
@@ -18,19 +16,19 @@ public class Starter {
 	static int howManyPlayers = 4;
 	
 	public static void main(String[] args) {
-		ArrayList<Integer> numberIndexing = NumberPicker.numberSequenceMaker(maxIntRange, maxIntRange);
-		ArrayList<Player> playerList = PlayerListMaker.playerListMaker(maxIntRange, bingoBoardSize, howManyPlayers);
+		List<Integer> numberIndexing = NumberPicker.numberSequenceMaker(maxIntRange, maxIntRange);
+		List<Player> playerList = PlayerListMaker.playerListMaker(maxIntRange, bingoBoardSize, howManyPlayers);
 		
 		while(!GameClearJudge.gameCleareJudge(playerList, bingoLinesForClear)) {
 			int pickNumberNow = numberIndexing.get(0);
-			System.out.println("ÀÌ¹ø¿¡ »ÌÈù ¼ıÀÚ´Â  "+pickNumberNow);
+			System.out.println("ì´ë²ˆ ìˆ«ìëŠ” "+pickNumberNow);
 			numberIndexing.remove(0);
 			playerList = mainProcessForCheckBingo(pickNumberNow, playerList);
 		}
 		
 	}
 	
-	public static ArrayList<Player> mainProcessForCheckBingo(int pickNumber, ArrayList<Player> players) {
+	public static List<Player> mainProcessForCheckBingo(int pickNumber, List<Player> players) {
 		for(Player player : players) {
 			int[] markingPostion = BoardMarker.bingoBoardMarker(pickNumber, player.getBingoBoard());
 			int[][] bingoBoardForCheck = BoardMarker.boardChecker(player.getBingoBoardForCheck(), markingPostion);

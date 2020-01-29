@@ -1,6 +1,7 @@
 package numberPicker;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NumberPicker {
 
@@ -11,8 +12,8 @@ public class NumberPicker {
 		return pick;
 	}
 
-	public static ArrayList<Integer> numberSequenceMaker(int numberRange, int needNumberSize) {
-		ArrayList<Integer> numberingList = new ArrayList<Integer>();
+	public static List<Integer> numberSequenceMaker(int numberRange, int needNumberSize) {
+		List<Integer> numberingList = new ArrayList<Integer>();
 		while (numberingList.size() < needNumberSize) {
 			int pick = randomNumberPicker(numberRange);
 			if(!isAlreadyPickedNumber(pick, numberingList)) {
@@ -22,7 +23,7 @@ public class NumberPicker {
 		return numberingList;
 	}
 
-	private static boolean isAlreadyPickedNumber(int numberForCheck, ArrayList<Integer> alreadyNumberingList) {
+	private static boolean isAlreadyPickedNumber(int numberForCheck, List<Integer> alreadyNumberingList) {
 		boolean result = false;
 
 		for (int alreadyNumbering : alreadyNumberingList) {

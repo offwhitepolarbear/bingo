@@ -1,6 +1,6 @@
 package boardMaker;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import numberPicker.NumberPicker;
 
@@ -12,7 +12,7 @@ public class BoardMaker {
 	
 	public static int[][] bingoBoardMaker(int maximumNumberRange, int boardSize){
 		int[][] bingoBoard = new int[boardSize][boardSize];
-		ArrayList<Integer> numbersForBoard = NumberPicker.numberSequenceMaker(maximumNumberRange, boardSize*boardSize);
+		List<Integer> numbersForBoard = NumberPicker.numberSequenceMaker(maximumNumberRange, boardSize*boardSize);
 		int indexMarker = 0;
 		for(int i=0;i<bingoBoard[0].length;i++) {
 			for(int j=0;j<bingoBoard[0].length;j++) {
