@@ -1,12 +1,12 @@
 package player;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Player {
 	String name;
 	int [][] bingoBoard;
 	int [][] bingoBoardForCheck;
-	ArrayList<MadedBingoInformation> madedBingoList;
+	List<MadedBingoInformation> madedBingoList;
 	
 	public String getName() {
 		return name;
@@ -26,10 +26,10 @@ public class Player {
 	public void setBingoBoardForCheck(int[][] bingoBoardForCheck) {
 		this.bingoBoardForCheck = bingoBoardForCheck;
 	}
-	public ArrayList<MadedBingoInformation> getMadedBingoList() {
+	public List<MadedBingoInformation> getMadedBingoList() {
 		return madedBingoList;
 	}
-	public void setMadedBingoList(ArrayList<MadedBingoInformation> madedBingoList) {
+	public void setMadedBingoList(List<MadedBingoInformation> madedBingoList) {
 		this.madedBingoList = madedBingoList;
 	}
 	

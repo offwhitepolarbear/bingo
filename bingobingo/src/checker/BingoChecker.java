@@ -1,24 +1,23 @@
 package checker;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import player.BingoDirection;
 import player.MadedBingoInformation;
 
 public class BingoChecker {
 	
-	public static ArrayList<MadedBingoInformation> bingoChecker(int[][] bingoBoardForCheck) {
-		ArrayList<MadedBingoInformation> madedBingoList = new ArrayList<MadedBingoInformation>();
+	public static List<MadedBingoInformation> bingoChecker(int[][] bingoBoardForCheck) {
+		List<MadedBingoInformation> madedBingoList = new ArrayList<MadedBingoInformation>();
 		madedBingoList.addAll(checkDiagonal(bingoBoardForCheck));
-		madedBingoList.addAll(checkHorizontal(bingoBoardForCheck));
-		madedBingoList.addAll(checkVertical(bingoBoardForCheck));
-		
+		madedBingoList.addAll(checkVerticalAndHorizontal(bingoBoardForCheck));
 		return madedBingoList;
 		
 	}
 	
-	public static ArrayList<MadedBingoInformation> checkDiagonal(int[][] bingoBoardForCheck) {
-		ArrayList<MadedBingoInformation> madedBingoInfomationList = new ArrayList<MadedBingoInformation>();
+	public static List<MadedBingoInformation> checkDiagonal(int[][] bingoBoardForCheck) {
+		List<MadedBingoInformation> madedBingoInfomationList = new ArrayList<MadedBingoInformation>();
 	
 		int leftDiagonal = 0;
 		int rightDiagonal = 0;
@@ -42,47 +41,36 @@ public class BingoChecker {
 		return madedBingoInfomationList;
 	}
 	
-	public static ArrayList<MadedBingoInformation> checkHorizontal(int[][] bingoBoardForCheck) {
+	public static List<MadedBingoInformation> checkVerticalAndHorizontal(int[][] bingoBoardForCheck) {
 		
-		ArrayList<MadedBingoInformation> madedBingoInfomationList = new ArrayList<MadedBingoInformation>();
+		List<MadedBingoInformation> madedBingoInfomationList = new ArrayList<MadedBingoInformation>();
 
 		for (int i = 0; i < bingoBoardForCheck[0].length; i++) {
-			int isChecked = 0;
-
+			
+			int horizontalChecked = 0;
+			int verticalChecked = 0;
+			
 			for (int j = 0; j < bingoBoardForCheck[0].length; j++) {
 				if (bingoBoardForCheck[i][j] == 1) {
-					isChecked++;
+					horizontalChecked++;
+				}
+				if (bingoBoardForCheck[j][i] == 1) {
+					verticalChecked++;
 				}
 			}
 
-			if (isChecked == bingoBoardForCheck.length) {
+			if (horizontalChecked == bingoBoardForCheck.length) {
 				madedBingoInfomationList.add(new MadedBingoInformation(BingoDirection.Horizontal,i+1));
 			}
-		}
-
-		return madedBingoInfomationList;
-	}
-
-	public static ArrayList<MadedBingoInformation> checkVertical(int[][] bingoBoardForCheck) {
-		
-		ArrayList<MadedBingoInformation> madedBingoInfomationList = new ArrayList<MadedBingoInformation>();
-
-		for (int i = 0; i < bingoBoardForCheck[0].length; i++) {
-			int isChecked = 0;
-
-			for (int j = 0; j < bingoBoardForCheck[0].length; j++) {
-				if (bingoBoardForCheck[j][i] == 1) {
-					isChecked++;
-				}
-			}
-
-			if (isChecked == bingoBoardForCheck.length) {
+			
+			if (verticalChecked == bingoBoardForCheck.length) {
 				madedBingoInfomationList.add(new MadedBingoInformation(BingoDirection.Vertical,i+1));
 			}
 		}
 
 		return madedBingoInfomationList;
 	}
+
 
 
 }
