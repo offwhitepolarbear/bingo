@@ -26,16 +26,22 @@ public class BingoChecker {
 			if (bingoBoardForCheck[i][i] == 1) {
 				leftDiagonal++;
 			}
-			if (bingoBoardForCheck[bingoBoardForCheck.length - 1 - i][1] == 1) {
+			if (bingoBoardForCheck[bingoBoardForCheck.length -1 -i][1] == 1) {
 				rightDiagonal++;
 			}
 		}
 
 		if (leftDiagonal == bingoBoardForCheck.length) {
-			madedBingoInfomationList.add(new MadedBingoInformation(BingoDirection.Diagonal,1));
+			madedBingoInfomationList
+			.add(new MadedBingoInformation
+					.Builder(BingoDirection.Diagonal, 1)
+					.build());		
 		}
 		if (rightDiagonal == bingoBoardForCheck.length) {
-			madedBingoInfomationList.add(new MadedBingoInformation(BingoDirection.Diagonal,2));
+			madedBingoInfomationList
+			.add(new MadedBingoInformation
+					.Builder(BingoDirection.Diagonal, 2)
+					.build());			
 		}
 
 		return madedBingoInfomationList;
@@ -60,17 +66,21 @@ public class BingoChecker {
 			}
 
 			if (horizontalChecked == bingoBoardForCheck.length) {
-				madedBingoInfomationList.add(new MadedBingoInformation(BingoDirection.Horizontal,i+1));
+				madedBingoInfomationList
+				.add(new MadedBingoInformation
+						.Builder(BingoDirection.Horizontal, i+1)
+						.build());
 			}
 			
 			if (verticalChecked == bingoBoardForCheck.length) {
-				madedBingoInfomationList.add(new MadedBingoInformation(BingoDirection.Vertical,i+1));
+				madedBingoInfomationList
+				.add(new MadedBingoInformation
+						.Builder(BingoDirection.Vertical, i+1)
+						.build());			
 			}
 		}
 
 		return madedBingoInfomationList;
 	}
-
-
 
 }

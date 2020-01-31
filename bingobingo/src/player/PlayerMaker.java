@@ -6,11 +6,11 @@ import boardMaker.BoardMaker;
 
 public class PlayerMaker {
 	public static Player playerMaker(int maximumNumberRange,int boardSize, String userName) {
-		Player player = new Player();
-		player.setName(userName);
-		player.setBingoBoard(BoardMaker.bingoBoardMaker(maximumNumberRange, boardSize));
-		player.setBingoBoardForCheck(new int[boardSize][boardSize]);
-		player.setMadedBingoList(new ArrayList<MadedBingoInformation>());
+		Player player = new Player
+				.Builder(userName, BoardMaker.bingoBoardMaker(maximumNumberRange, boardSize))
+				.bingoBoardForCheck(new int[boardSize][boardSize])
+				.madedBingoList(new ArrayList<MadedBingoInformation>())
+				.build();
 		return player;
 	}
 }

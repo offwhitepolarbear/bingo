@@ -2,34 +2,37 @@ package player;
 
 public class MadedBingoInformation {
 	
-	BingoDirection bingoDirection;
-	int whichLine;
+	private final BingoDirection bingoDirection;
+	private final int whichLine;
 	
-	public MadedBingoInformation() {
+	public MadedBingoInformation(Builder builder) {
+		this.bingoDirection = builder.bingoDirection;
+		this.whichLine = builder.whichLine;
 	}
 	
-	public MadedBingoInformation(BingoDirection bingoDirection, int whichLine) {
-		super();
-		this.bingoDirection = bingoDirection;
-		this.whichLine = whichLine;
+	public static class Builder{
+		private final BingoDirection bingoDirection;
+		private final int whichLine;
+		public Builder(BingoDirection bingoDirection, int whichLine) {
+			this.bingoDirection = bingoDirection;
+			this.whichLine = whichLine;
+		}
+		public MadedBingoInformation build() {
+			return new MadedBingoInformation(this);
+		}
 	}
 	
 	public BingoDirection getBingoDirection() {
 		return bingoDirection;
 	}
-	public void setBingoDirection(BingoDirection bingoDirection) {
-		this.bingoDirection = bingoDirection;
-	}
+
 	public int getWhichLine() {
 		return whichLine;
-	}
-	public void setWhichLine(int whichLine) {
-		this.whichLine = whichLine;
 	}
 	
 	@Override
 	public String toString() {
-		return "MadedBIngoInfomation [bingoDirection=" + bingoDirection + ", whichLine=" + whichLine + "]";
+		return "완성빙고 정보 : " + bingoDirection + " 방향 " + whichLine + " 번째 줄";
 	}
 	
 }
