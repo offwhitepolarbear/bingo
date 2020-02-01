@@ -5,19 +5,19 @@ import java.util.List;
 import numberPicker.NumberPicker;
 
 public class BoardMaker {
-	
+
 	public static void main(String[] args) {
-		int[][] tester =  bingoBoardMaker(100,5);
 	}
-	
-	public static int[][] bingoBoardMaker(int maximumNumberRange, int boardSize){
+
+	public static int[][] bingoBoardMaker(List<Integer> numbersForBoard, int boardSize) {
+
 		int[][] bingoBoard = new int[boardSize][boardSize];
-		List<Integer> numbersForBoard = NumberPicker.numberSequenceMaker(maximumNumberRange, boardSize*boardSize);
+
 		int indexMarker = 0;
-		for(int i=0;i<bingoBoard[0].length;i++) {
-			for(int j=0;j<bingoBoard[0].length;j++) {
-				bingoBoard[i][j]=numbersForBoard.get(indexMarker);
-				System.out.print(numbersForBoard.get(indexMarker)+",");
+		for (int i = 0; i < bingoBoard[0].length; i++) {
+			for (int j = 0; j < bingoBoard[0].length; j++) {
+				bingoBoard[i][j] = numbersForBoard.get(indexMarker);
+				System.out.print(bingoBoard[i][j] + ", ");
 				indexMarker++;
 			}
 			System.out.println();
@@ -26,4 +26,9 @@ public class BoardMaker {
 
 		return bingoBoard;
 	}
+
+	public static List<Integer> chooseNumbersForMakingBingoBoard(int numberRange, int boardSize) {
+		return NumberPicker.numberSequenceMaker(numberRange, boardSize * boardSize);
+	}
+
 }

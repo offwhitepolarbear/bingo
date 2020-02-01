@@ -10,10 +10,10 @@ import player.Player;
 import player.PlayerListMaker;
 
 public class Starter {
-	static int bingoBoardSize = 5;
+	static int bingoBoardSize = 9;
 	static int maxIntRange = 100;
-	static int bingoLinesForClear = 2;
-	static int howManyPlayers = 4;
+	static int bingoLinesForClear = 10;
+	static int howManyPlayers = 7;
 	
 	public static void main(String[] args) {
 		List<Integer> numberIndexing = NumberPicker.numberSequenceMaker(maxIntRange, maxIntRange);
@@ -30,13 +30,14 @@ public class Starter {
 	
 	public static List<Player> mainProcessForCheckBingo(int pickNumber, List<Player> players) {
 		for(Player player : players) {
-			int[] markingPostion = BoardMarker.bingoBoardMarker(pickNumber, player.getBingoBoard());
-			int[][] bingoBoardForCheck = BoardMarker.boardChecker(player.getBingoBoardForCheck(), markingPostion);
+			int[] markingPosition = BoardMarker.checkNumberExistOnboard(pickNumber, player.getBingoBoard());
+			if(markingPosition.length==2) {
+			int[][] bingoBoardForCheck = BoardMarker.boardChecker(player.getBingoBoardForCheck(), markingPosition);
 			player.setBingoBoardForCheck(bingoBoardForCheck);
 			player.setMadedBingoList(BingoChecker.bingoChecker(player.getBingoBoardForCheck()));
+			}
 		}
 		return players;
 	}
-
 
 }

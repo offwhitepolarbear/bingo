@@ -12,13 +12,13 @@ public class BoardMarker {
 			System.out.println(" 번째 칸이 체크 되었습니다.");
 		}
 		else {
-			System.out.println("체크 된 칸 없음");
+			System.out.println("해당하는 숫자가 빙고판에 없습니다.");
 		}
 		
 		return bingoBoard; 
 	}
 	
-	public static int[] bingoBoardMarker(int pickNumber, int[][] bingoBoard) {
+	public static int[] checkNumberExistOnboard (int pickNumber, int[][] bingoBoard) {
 		int[] markingPosition = {};
 		for(int i=0;i<bingoBoard[0].length;i++) {
 			for(int j=0;j<bingoBoard[0].length;j++) {
