@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NumberPicker {
-
+	
 	public static int randomNumberPicker(int range) {
 
 		int pick = (int) (Math.random() * range)+1;
